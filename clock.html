@@ -4,15 +4,12 @@
 tday=new Array("Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Sonnabend");
 tmonth=new Array("Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember");
 
-function GetClock(){
 var d=new Date();
 var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getFullYear();
 var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
-
-if(nhour==0){ap="";nhour=0;}
-else if(nhour<12){ap="";}
-else if(nhour==12){ap="";}
-
+if(nhour==0){ap=" Uhr";nhour=24;}
+else if(nhour<24){ap=" Uhr";}
+else if(nhour>24){ap=" Uhr";nhour-=24;}
 if(nmin<=9) nmin="0"+nmin;
 if(nsec<=9) nsec="0"+nsec;
 
